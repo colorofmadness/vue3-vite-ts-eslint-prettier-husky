@@ -12,28 +12,11 @@ export default defineConfig({
       symbolId: '[name]'
     })
   ],
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://api.develop.omgapp.ru/',
-        changeOrigin: true
-      },
-      '/media': {
-        target: 'https://api.develop.omgapp.ru/',
-        changeOrigin: true
-      }
-    }
-  },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "src/assets/style/_mixins.scss";`
-      }
-    }
-  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
+      '@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
       '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
       '@ui': fileURLToPath(new URL('./src/components/ui', import.meta.url))
     }

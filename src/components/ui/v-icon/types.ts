@@ -3,4 +3,4 @@ interface IIconProps {
   name: string;
 }
 
-export { IIconProps };
+export default IIconProps;

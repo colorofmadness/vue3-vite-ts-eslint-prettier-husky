@@ -7,7 +7,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
-import { IIconProps } from '@ui/v-icon/types';
+import IIconProps from '@ui/v-icon/types';
 
 const props = withDefaults(defineProps<IIconProps>(), {
   size: '16'

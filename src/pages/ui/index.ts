@@ -1,1 +1,3 @@
-export { default as Ui } from './ui.vue';
+import UI from './ui.vue';
+
+export default UI;

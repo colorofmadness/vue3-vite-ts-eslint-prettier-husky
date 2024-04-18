@@ -1,4 +1,6 @@
 /// <reference types="vite/client" />
+/// <reference types="vite-plugin-svg-sprite/client" />
+
 declare module '*.vue' {
   import type { DefineComponent } from 'vue';
 
@@ -8,12 +10,5 @@ declare module '*.vue' {
 
 declare module '*.scss';
 declare module '*.png';
-
-interface ImportMetaEnv {
-  VITE_APP_HOST_URL: string;
-  VITE_APP_API_PREFIX: string;
-  VITE_APP_API_URL: string;
-  VITE_APP_STORAGE_URL: string;
-}
 
 export {};

@@ -1,12 +1,16 @@
 // =============================================================================
 // String Replace
 // =============================================================================
+@use "sass:string";
+;
+@use "sass:map";
+@use "sass:list";
 
 @function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
+  $index: string.index($string, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace (+ str-replace(str-slice($string, $index + str-length($search)), $search, $replace));
+    @return string.slice($string, 1, $index - 1) + $replace (+ str-replace(string.slice($string, $index + string.length($search)), $search, $replace));
   }
 
   @return $string;
@@ -18,25 +22,23 @@
 
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf otf svg) {
   $src: null;
-
   $extmods: (
           eot: '?',
           svg: '#' + str-replace($name, ' ', '_')
   );
-
   $formats: (
           otf: 'opentype',
           ttf: 'truetype'
   );
 
   @each $ext in $exts {
-    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+    $extmod: if(map.has-key($extmods, $ext), $ext + map.get($extmods, $ext), $ext);
+    $format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
+    $src: list.append($src, url(quote($path + '.' + $extmod)) format(string.quote($format)), comma);
   }
 
   @font-face {
-    font-family: quote($name);
+    font-family: string.quote($name);
     font-style: $style;
     font-weight: $weight;
     src: $src;
@@ -55,31 +57,4 @@
   line-height: $line-height;
   font-weight: $font-weight;
   font-style: $font-style;
-}
-
-@mixin scrollbar($color: rgba(gray, .5), $width: 4px, $height: 4px) {
-  scrollbar-width: thin;
-  scrollbar-color: $color;
-
-  &::-webkit-scrollbar {
-    width: $width;
-    height: $height;
-    opacity: 0;
-    background: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 16px;
-    width: $width;
-    background: $color;
-  }
-}
-
-@mixin hideScroll {
-  & {
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
-  }
-  &::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
-  }
 }

@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import Ui from '@pages/ui/';
 
 export const routes = [
   {
     path: '/ui',
     name: 'ui',
-    component: async () => (await import('@/pages/ui')).Ui
+    component: Ui
   }
 ];
 

@@ -7,9 +7,9 @@
 </template>
 
 <script lang="ts" setup>
-import { VIcon } from '@ui/v-icon';
+import VIcon from '@ui/v-icon';
 
-import { PrimaryLayout } from '@/layouts/primary-layout';
+import PrimaryLayout from '@/layouts/primary-layout';
 </script>
 
 <style lang="scss" scoped src="./ui.scss"></style>

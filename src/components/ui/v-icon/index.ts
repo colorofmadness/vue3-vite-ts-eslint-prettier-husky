@@ -1,1 +1,3 @@
-export { default as VIcon } from './v-icon.vue';
+import VIcon from './v-icon.vue';
+
+export default VIcon;
