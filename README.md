@@ -1,10 +1,4 @@
-# Приложение жителя front-end
-
-## Общее
-
-- **Архитектура**: Классическая архитектура
-- **Общение между сервисами**: REST
-- **Общение через Gateway**: gRPC(фронт)/HTTP(к сервисам)
+# Шаблон для быстрого стартра
 
 ## Требования для запуска в локальной среде:
 
@@ -60,11 +54,12 @@ yarn build
     │   │   │   │   └── v-input.scss
     │   │   │   └── ...
     │   ├── composables # Папка с хуками приложения
-    │   │   ├── useApi.ts
+    │   │   ├── useModal.ts
     │   │   └── ...
+    │   ├── helpers # Папка с хелперами приложения
     │   ├── layouts # Папка с лайаутами приложения
     │   ├── router # Папка с маршрутами приложения
-    │   ├── stores # Папка с хранилищями приложения
+    │   ├── store # Папка с хранилищями приложения
     │   ├── services # Папка с api приложения
     │   ├── pages # Папка со страницами проекта
     │   │   ├── news
@@ -102,7 +97,7 @@ interface IIconProps {
   name: string;
 }
 
-export { IIconProps };
+export default IIconProps;
 
 ```
 
@@ -118,7 +113,7 @@ export { IIconProps };
 <script lang="ts" setup>
 import { computed } from 'vue';
 
-import { IIconProps } from '@ui/v-icon/types';
+import IIconProps from '@ui/v-icon/types';
 
 const props = withDefaults(defineProps<IIconProps>(), {
   size: '16'
