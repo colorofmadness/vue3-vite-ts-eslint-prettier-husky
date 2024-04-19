@@ -32,6 +32,7 @@
         "devDependencies": true
       }
     ],
+    "no-plusplus": "off",
     "no-return-assign": "off",
     "import/newline-after-import": [
       "error"

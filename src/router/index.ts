@@ -3,7 +3,7 @@ import Ui from '@pages/ui/';
 
 export const routes = [
   {
-    path: '/ui',
+    path: '/',
     name: 'ui',
     component: Ui
   }
